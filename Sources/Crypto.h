@@ -30,7 +30,7 @@
 
 // MARK: - Hash functions
 
-/// Computes the Ethereum hash of a block of data (SHA3 Keccak 256 version).
+/// Computes the Moac hash of a block of data (SHA3 Keccak 256 version).
 + (nonnull NSData *)hash:(nonnull NSData *)hash;
 
 /// Computes the SHA256 hash of the SHA256 hash of the data.

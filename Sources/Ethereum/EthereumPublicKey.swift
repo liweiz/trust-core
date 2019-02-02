@@ -6,7 +6,7 @@
 
 import Foundation
 
-public final class EthereumPublicKey: PublicKey {
+public final class MoacPublicKey: PublicKey {
     /// Validates that raw data is a valid public key.
     static public func isValid(data: Data) -> Bool {
         if data.count != 65 {
@@ -16,7 +16,7 @@ public final class EthereumPublicKey: PublicKey {
     }
 
     /// Coin this key is for.
-    public let coin = Coin.ethereum
+    public let coin = Coin.moac
 
     /// Raw representation of the public key.
     public let data: Data
@@ -24,12 +24,12 @@ public final class EthereumPublicKey: PublicKey {
     /// Address.
     public var address: Address {
         let hash = Crypto.hash(data[1...])
-        return EthereumAddress(data: hash.suffix(Ethereum.addressSize))!
+        return MoacAddress(data: hash.suffix(Moac.addressSize))!
     }
 
     /// Creates a public key from a raw representation.
     public init?(data: Data) {
-        if !EthereumPublicKey.isValid(data: data) {
+        if !MoacPublicKey.isValid(data: data) {
             return nil
         }
         self.data = data

@@ -7,7 +7,7 @@
 import BigInt
 import Foundation
 
-/// Encodes fields according to Ethereum's Application Binary Interface Specification
+/// Encodes fields according to Moac's Application Binary Interface Specification
 ///
 /// - SeeAlso: https://solidity.readthedocs.io/en/develop/abi-spec.html
 public final class ABIEncoder {
@@ -156,7 +156,7 @@ public final class ABIEncoder {
     }
 
     /// Encodes an address
-    public func encode(_ address: EthereumAddress) throws {
+    public func encode(_ address: MoacAddress) throws {
         let padding = ((address.data.count + 31) / 32) * 32 - address.data.count
         data.append(Data(repeating: 0, count: padding))
         data.append(address.data)

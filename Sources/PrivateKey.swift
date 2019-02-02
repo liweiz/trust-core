@@ -10,7 +10,7 @@ public final class PrivateKey: Hashable, CustomStringConvertible {
     /// Validates that raw data is a valid private key.
     static public func isValid(data: Data) -> Bool {
         // Check length
-        if data.count != Ethereum.privateKeySize {
+        if data.count != Moac.privateKeySize {
             return false
         }
 
@@ -70,8 +70,9 @@ public final class PrivateKey: Hashable, CustomStringConvertible {
              .poa,
              .ethereumClassic,
              .callisto,
-             .gochain:
-            return EthereumPublicKey(data: Crypto.getPublicKey(from: data))!
+             .gochain,
+             .moac:
+            return MoacPublicKey(data: Crypto.getPublicKey(from: data))!
         }
     }
 

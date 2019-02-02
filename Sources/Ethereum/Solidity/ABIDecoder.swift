@@ -129,9 +129,9 @@ public final class ABIDecoder {
     }
 
     /// Decodes an address
-    public func decodeAddress() -> EthereumAddress {
+    public func decodeAddress() -> MoacAddress {
         let addressLength = 20
-        let address = EthereumAddress(data: data.subdata(in: offset + ABIEncoder.encodedIntSize - addressLength ..< offset + ABIEncoder.encodedIntSize))!
+        let address = MoacAddress(data: data.subdata(in: offset + ABIEncoder.encodedIntSize - addressLength ..< offset + ABIEncoder.encodedIntSize))!
         offset += ABIEncoder.encodedIntSize
         return address
     }

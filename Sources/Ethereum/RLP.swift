@@ -7,7 +7,7 @@
 import Foundation
 import BigInt
 
-/// Implementation of Ethereum's RLP encoding.
+/// Implementation of Moac's RLP encoding.
 ///
 /// - SeeAlso: https://github.com/ethereum/wiki/wiki/RLP
 public struct RLP {

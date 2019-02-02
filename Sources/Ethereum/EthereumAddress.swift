@@ -7,11 +7,11 @@
 import Foundation
 import TrezorCrypto
 
-/// Ethereum address.
-public struct EthereumAddress: Address, Hashable {
+/// Moac address.
+public struct MoacAddress: Address, Hashable {
     /// Validates that the raw data is a valid address.
     static public func isValid(data: Data) -> Bool {
-        return data.count == Ethereum.addressSize
+        return data.count == Moac.addressSize
     }
 
     /// Validates that the string is a valid address.
@@ -19,7 +19,7 @@ public struct EthereumAddress: Address, Hashable {
         guard let data = Data(hexString: string) else {
             return false
         }
-        let eip55String = EthereumAddress.computeEIP55String(for: data)
+        let eip55String = MoacAddress.computeEIP55String(for: data)
         return string == eip55String
     }
 
@@ -36,30 +36,30 @@ public struct EthereumAddress: Address, Hashable {
     ///
     /// - Precondition: data contains exactly 20 bytes
     public init?(data: Data, coin: Coin) {
-        if !EthereumAddress.isValid(data: data) {
+        if !MoacAddress.isValid(data: data) {
             return nil
         }
         self.data = data
         self.coin = coin
-        eip55String = EthereumAddress.computeEIP55String(for: data)
+        eip55String = MoacAddress.computeEIP55String(for: data)
     }
 
     /// Creates an address with an hexadecimal string representation.
     public init?(string: String, coin: Coin) {
-        guard let data = Data(hexString: string), data.count == Ethereum.addressSize else {
+        guard let data = Data(hexString: string), data.count == Moac.addressSize else {
             return nil
         }
         self.data = data
         self.coin = coin
-        eip55String = EthereumAddress.computeEIP55String(for: data)
+        eip55String = MoacAddress.computeEIP55String(for: data)
     }
 
     public init?(string: String) {
-        self.init(string: string, coin: .ethereum)
+        self.init(string: string, coin: .moac)
     }
 
     public init?(data: Data) {
-        self.init(data: data, coin: .ethereum)
+        self.init(data: data, coin: .moac)
     }
 
     public var description: String {
@@ -70,12 +70,12 @@ public struct EthereumAddress: Address, Hashable {
         return data.hashValue
     }
 
-    public static func == (lhs: EthereumAddress, rhs: EthereumAddress) -> Bool {
+    public static func == (lhs: MoacAddress, rhs: MoacAddress) -> Bool {
         return lhs.data == rhs.data
     }
 }
 
-extension EthereumAddress {
+extension MoacAddress {
     /// Converts the address to an EIP55 checksumed representation.
     fileprivate static func computeEIP55String(for data: Data) -> String {
         let addressString = data.hexString

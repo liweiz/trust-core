@@ -6,7 +6,7 @@
 
 import Foundation
 
-public enum Ethereum {
+public enum Moac {
     public static let privateKeySize = 32
     public static let addressSize = 20
 }

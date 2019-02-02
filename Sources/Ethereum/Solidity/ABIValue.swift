@@ -15,7 +15,7 @@ public indirect enum ABIValue: Equatable {
     case int(bits: Int, BigInt)
 
     /// Address, similar to `uint(bits: 160)`
-    case address(EthereumAddress)
+    case address(MoacAddress)
 
     /// Boolean
     case bool(Bool)
@@ -131,7 +131,7 @@ public indirect enum ABIValue: Equatable {
             self = .int(bits: bits, BigInt(value))
         case (.int(let bits), let value as BigInt):
             self = .int(bits: bits, value)
-        case (.address, let address as EthereumAddress):
+        case (.address, let address as MoacAddress):
             self = .address(address)
         case (.bool, let value as Bool):
             self = .bool(value)
