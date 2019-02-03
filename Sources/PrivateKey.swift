@@ -71,7 +71,8 @@ public final class PrivateKey: Hashable, CustomStringConvertible {
              .ethereumClassic,
              .callisto,
              .gochain,
-             .moac:
+             .moac,
+             .testnetAllCoins:
             return MoacPublicKey(data: Crypto.getPublicKey(from: data))!
         }
     }

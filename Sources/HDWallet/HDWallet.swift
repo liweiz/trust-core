@@ -62,7 +62,8 @@ extension Coin {
              .ethereumClassic,
              .callisto,
              .gochain,
-             .moac:
+             .moac,
+             .testnetAllCoins:
             return DerivationPath(purpose: 44, coinType: self.rawValue, account: 0, change: 0, address: index)
         }
     }
