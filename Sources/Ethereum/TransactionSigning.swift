@@ -26,6 +26,9 @@ struct EIP155Signer: Signer {
             transaction.to.data,
             transaction.amount,
             transaction.payload ?? Data(),
+            transaction.shardingFlag,
+            transaction.systemContract,
+            transaction.via.data,
             chainID, 0, 0,
         ] as [Any])!
     }
@@ -51,6 +54,9 @@ struct HomesteadSigner: Signer {
             transaction.to.data,
             transaction.amount,
             transaction.payload ?? Data(),
+            transaction.shardingFlag,
+            transaction.systemContract,
+            transaction.via.data,
         ])!
     }
 

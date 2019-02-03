@@ -14,6 +14,10 @@ public struct Transaction {
     public var to: MoacAddress
     public var amount: BigInt
     public var payload: Data?
+    
+    public var shardingFlag: BigInt
+    public var systemContract: BigInt
+    public var via: MoacAddress
 
     // Signature values
     public var v = BigInt()
@@ -21,11 +25,14 @@ public struct Transaction {
     public var s = BigInt()
 
     /// Creates a `Transaction`.
-    public init(gasPrice: BigInt, gasLimit: UInt64, to: MoacAddress) {
+    public init(gasPrice: BigInt, gasLimit: UInt64, to: MoacAddress, shardingFlag: BigInt, systemContract: BigInt, via: MoacAddress) {
         nonce = 0
         self.gasPrice = gasPrice
         self.gasLimit = gasLimit
         self.to = to
+        self.shardingFlag = shardingFlag
+        self.systemContract = systemContract
+        self.via = via
         amount = BigInt()
     }
 
