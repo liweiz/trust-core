@@ -16,5 +16,7 @@ public enum Coin: Int {
     case callisto = 820
     case gochain = 6060
     case moac = 314
+    case moacTestnet = 315
+    case moacLocalPrivate = 316
     case testnetAllCoins = 1
 }

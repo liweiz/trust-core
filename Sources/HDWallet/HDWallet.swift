@@ -63,6 +63,8 @@ extension Coin {
              .callisto,
              .gochain,
              .moac,
+             .moacTestnet,
+             .moacLocalPrivate,
              .testnetAllCoins:
             return DerivationPath(purpose: 44, coinType: self.rawValue, account: 0, change: 0, address: index)
         }
